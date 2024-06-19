@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script src="svj.js" defer></script>
 </head>
 
@@ -15,36 +15,49 @@
     <div class="input-group" id="input-group-id">
       <div class="svj-field" id="svj-field-id">
         <input class="svj-field-input" id="svj-field-input-id"
-          type="number" placeholder="Schadevrije jaren">
+          type="number" placeholder="Schadevrije jaren" />
       </div>
+
       <!-- Huidig kortingspercentage laten verschijnen op basis van aantal svj, anders niets -->
 
       <div class="schades-field" id="schades-field-id">
         <input class="schades-field-input"
           id="schades-field-input-id" type="number"
-          placeholder="Aantal schades">
+          placeholder="Aantal schades" />
       </div>
 
       <div class="premie-field" id="premie-field-id">
         <input class="premie-field-input"
           id="premie-field-input-id" type="number"
-          placeholder="Uw huidige premie">
+          placeholder="Uw huidige premie" />
       </div>
 
       <button class="button-bevestigen"
         id="button-bevestigen-id">Bevestigen</button>
     </div>
 
-
     <!-- Uitkomst in tekstveld -->
 
     <div class="output-group" id="output-group-id">
-      <p class="korting" id="korting-id">U heeft momenteel <span
-          class="korting-percentage"
-          id="korting-percentage-id"></span>% korting. <br>
-        Wanneer u
-        deze schade(s) claimt, ziet uw situatie er als volgt uit
+      <p class="korting" id="korting-id">
+        U heeft momenteel
+        <span class="korting-percentage"
+          id="korting-percentage-id"></span>%
+        korting.
       </p>
+      <p>Wanneer u deze schade(s) claimt, ziet uw situatie er als
+        volgt uit.</p>
+
+      <div class="uitkomst" id="uitkomst-id">
+        <strong>Schadevrije jaren:</strong>
+        <span class="svj-nieuw" id="svj-nieuw-id"></span> <br />
+        <strong>Kortingspercentage:</strong>
+        <span class="korting-nieuw" id="korting-nieuw-id"></span>
+        <br />
+        <strong>Nieuwe premie:</strong>
+        <span class="premie-nieuw" id="premie-nieuw-id"></span>
+        <br />
+      </div>
 
     </div>
   </div>
