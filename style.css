@@ -1,0 +1,87 @@
+* {
+	box-sizing: border-box;
+	font-family: OpenSans, Arial, 'sans-serif';
+}
+
+.body {
+	color: #333;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5625rem;
+	background-color: #fff;
+	letter-spacing: 0;
+	margin: 0;
+}
+
+.container {
+	width: 100%;
+	height: 100%;  
+}
+
+.input-group {
+	width: 470px;
+	height: 80px;
+	padding-bottom: 1.5rem;
+}
+.svj-field {
+	width: 470px;
+	height: 56px;
+  margin-bottom: 10px;
+}
+
+.svj-field-input {
+  width: 470px;
+	height: 56px;
+	font-size: 1.2rem;	
+	padding: 1px 32px 1px 16px;
+  
+}
+.svj-field-input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.korting{
+  font-weight: bold;
+}
+
+.schades-field {
+	width: 470px;
+	height: 56px;
+  margin-bottom: 10px;
+}
+
+.schades-field-input {
+  width: 470px;
+	height: 56px;
+	font-size: 1.2rem;
+	padding: 1px 32px 1px 16px;
+  
+}
+
+.schades-field-input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.premie-field {
+	width: 470px;
+	height: 56px;
+  margin-bottom: 10px;
+}
+
+.premie-field-input {
+  width: 470px;
+	height: 56px;
+	font-size: 1.2rem;
+	padding: 1px 32px 1px 16px;
+  
+}
+
+.premie-field-input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.output-group {
+	width: 470px;
+	height: 80px;
+	padding-bottom: 1.5rem;
+}

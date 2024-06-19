@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="svj.js" defer></script>
 </head>
+
 <body>
-  
+  <div class="container" id="container-id">
+    <div class="input-group" id="input-group-id">
+      <div class="svj-field" id="svj-field-id">
+        <input class="svj-field-input" id="svj-field-input-id"
+          type="number" placeholder="Schadevrije jaren">
+      </div>
+      <!-- Huidig kortingspercentage laten verschijnen op basis van aantal svj, anders niets -->
+
+      <div class="schades-field" id="schades-field-id">
+        <input class="schades-field-input"
+          id="schades-field-input-id" type="number"
+          placeholder="Aantal schades">
+      </div>
+
+      <div class="premie-field" id="premie-field-id">
+        <input class="premie-field-input"
+          id="premie-field-input-id" type="number"
+          placeholder="Uw huidige premie">
+      </div>
+
+      <button class="button-bevestigen"
+        id="button-bevestigen-id">Bevestigen</button>
+    </div>
+
+
+    <!-- Uitkomst in tekstveld -->
+
+    <div class="output-group" id="output-group-id">
+      <p class="korting" id="korting-id">U heeft momenteel <span
+          class="korting-percentage"
+          id="korting-percentage-id"></span>% korting. <br>
+        Wanneer u
+        deze schade(s) claimt, ziet uw situatie er als volgt uit
+      </p>
+
+    </div>
+  </div>
 </body>
+
 </html>
