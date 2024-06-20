@@ -5,17 +5,18 @@ const userInputSchade = document.getElementById('schades-field-input-id');
 const userInputPremie = document.getElementById('premie-field-input-id');
 const buttonBevestigen = document.getElementById('button-bevestigen-id');
 const huidigeKorting = document.getElementById('korting-percentage-id');
-const uitkomst = document.getElementById('korting-id');
+const uitkomst = document.getElementById('korting-id');// Nog gebruiken voor complerte innerHTML van uitkomst
 const svjNieuw = document.getElementById('svj-nieuw-id');
 const kortingNieuw = document.getElementById('korting-nieuw-id');
 
 function malusBerekening() {
 	let svjInput = parseInt(userInputSvj.value);
 	let schadesInput = parseInt(userInputSchade.value);
+	let svjNaSchade;
 	let kortingTrede;
 	let kortingsTredeNaSchade;
 
-	//Geeft huidige korting weer op basis van svj input klant
+	//Geeft huidige korting weer op basis van svjInput klant
 	if (svjInput >= -4 && svjInput < 14) {
 		kortingTrede = svjInput + 5;
 	} else if (svjInput >= 14) {
@@ -23,17 +24,21 @@ function malusBerekening() {
 	} else if (svjInput <= -5) {
 		kortingTrede = 0;
 	}
-
+  huidigeKorting.innerHTML = kortingPerTrede[kortingTrede];
+  
 	//Aantal svj na schadeclaim(s)
-	let svjNaSchade = svjInput - schadesInput * 5;
-
-	if (svjInput >= 14 && schadesInput >= 1) {
-		svjNaSchade = Math.max(14 - schadesInput * 5, svjNaSchade);
-	}
-
-	// max 9svj bij > 14svj & max -5svj bij > -5svj na schade
-	svjNaSchade = Math.min(Math.max(svjNaSchade, -5), 9);
-
+  if (svjInput >= 14 ) {
+    svjInput = 14
+  }  
+	if (schadesInput >= 1 && schadesInput <= 3) {
+		svjNaSchade = svjInput - schadesInput * 5;
+	} else if (schadesInput >= 4) {
+		svjNaSchade = 0;
+	} 
+	// Houdt uitkomst svjNaSchade binnen array svjPerTrede
+	svjNaSchade = Math.max(0, Math.min(svjNaSchade, svjPerTrede.length - 1));
+  svjNieuw.innerHTML = svjPerTrede[svjNaSchade];
+  
 	//Aantal procent korting na schadeclaim(s)
 	if (schadesInput >= 1 && schadesInput <= 3) {
 		kortingsTredeNaSchade = kortingTrede - schadesInput * 5;
@@ -42,13 +47,9 @@ function malusBerekening() {
 	} else {
 		kortingsTredeNaSchade = kortingTrede;
 	}
-
 	// Houdt uitkomst kortingsTredeNaSchade binnen array kortingPerTrede
 	kortingsTredeNaSchade = Math.max(0, Math.min(kortingsTredeNaSchade, kortingPerTrede.length - 1));
-
-	huidigeKorting.innerHTML = kortingPerTrede[kortingTrede] + '%';
-	svjNieuw.innerHTML = svjNaSchade;
-	kortingNieuw.innerHTML = kortingPerTrede[kortingsTredeNaSchade] + '%';
+	kortingNieuw.innerHTML = kortingPerTrede[kortingsTredeNaSchade];
 }
 
 buttonBevestigen.addEventListener('click', malusBerekening);
