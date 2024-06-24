@@ -10,7 +10,7 @@ const svjNieuw = document.getElementById('svj-nieuw-id');
 const kortingNieuw = document.getElementById('korting-nieuw-id');
 const premieNieuw = document.getElementById('premie-nieuw-id');
 
-// Alert bij ongeldige waarde svj of schades
+// Alert bij ongeldige waarde svj, schades of premie
 function geldigeInput(svj, schades, premieWa) {
 	if (isNaN(svj) || isNaN(schades) || isNaN(premieWa) || schades < 0) {
 		alert('Voer s.v.p. een geldig aantal in');
