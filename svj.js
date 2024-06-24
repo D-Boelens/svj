@@ -12,78 +12,80 @@ const premieNieuw = document.getElementById('premie-nieuw-id');
 
 // Alert bij ongeldige waarde svj of schades
 function geldigeInput(svj, schades, premieWa) {
-    if (isNaN(svj) || isNaN(schades) || isNaN(premieWa) || schades < 0) {
+	if (isNaN(svj) || isNaN(schades) || isNaN(premieWa) || schades < 0) {
 		alert('Voer s.v.p. een geldig aantal in');
 		return false;
-    }
-    return true;
+	}
+	return true;
 }
 
 // Kortingstrede op basis van svj
 function bepaalKortingTrede(svj) {
-    if (svj >= -4 && svj < 15) {
-        return svj + 5;
-    } else if (svj >= 15) {
-        return 20;
-    } else if (svj <= -5) {
-        return 0;
-    }
+	if (svj >= -4 && svj < 15) {
+		return svj + 5;
+	} else if (svj >= 15) {
+		return 20;
+	} else if (svj <= -5) {
+		return 0;
+	}
 }
 
 // Nieuwe svj na schade
 function berekenSvjNaSchade(svj, schades) {
-    if (svj >= 14) svj = 14;
-    if (schades >= 0 && schades <= 3) {
-        return Math.max(-5, Math.min(svj - schades * 5, 14));
-    } else if (schades >= 4) {
-        return -5;
-    }
-    return svj;
+	if (svj >= 14) {
+		svj = 14;
+	}
+	if (schades >= 0 && schades <= 3) {
+		return Math.max(-5, Math.min(svj - schades * 5, 14));
+	} else if (schades >= 4) {
+		return -5;
+	}
+	return svj;
 }
 
 // Nieuwe kortingstrede na schade
 function berekenKortingTredeNaSchade(kortingTrede, schades) {
-    if (schades >= 1 && schades <= 3) {
-        return Math.max(0, Math.min(kortingTrede - schades * 5, kortingPerTrede.length - 1));
-    } else if (schades >= 4) {
-        return 0;
-    }
-    return kortingTrede;
+	if (schades >= 1 && schades <= 3) {
+		return Math.max(0, Math.min(kortingTrede - schades * 5, kortingPerTrede.length - 1));
+	} else if (schades >= 4) {
+		return 0;
+	}
+	return kortingTrede;
 }
 
 // Nieuwe premie na schade
 function berekenNieuwePremie(waPremie, huidigeKortingPercentage, nieuweKortingPercentage) {
-	let oorspronkelijkePremie = waPremie / ((100 - huidigeKortingPercentage) / 100);
+	const oorspronkelijkePremie = waPremie / ((100 - huidigeKortingPercentage) / 100);
 	return (oorspronkelijkePremie * ((100 - nieuweKortingPercentage) / 100) * 1.21).toFixed(2);
 }
 
 //Totale uitkomst oud en nieuw
 function malusBerekening() {
-	let svjInput = parseInt(userInputSvj.value);
-	let schadesInput = parseInt(userInputSchade.value);
-	let waPremieInput = parseFloat(userInputWaPremie.value);
+	const svjInput = parseInt(userInputSvj.value);
+	const schadesInput = parseInt(userInputSchade.value);
+	const waPremieInput = parseFloat(userInputWaPremie.value);
 
 	if (!geldigeInput(svjInput, schadesInput, waPremieInput)) {
 		return;
 	}
 
 	// Huidige korting op basis van svjInput klant
-	let kortingTrede = bepaalKortingTrede(svjInput);
+	const kortingTrede = bepaalKortingTrede(svjInput);
 	huidigeKorting.innerHTML = kortingPerTrede[kortingTrede] + '% korting (trede ' + (kortingTrede + 1) + ')';
 
 	// Aantal svj na schadeclaim(s)
-	let svjNaSchade = berekenSvjNaSchade(svjInput, schadesInput);
+	const svjNaSchade = berekenSvjNaSchade(svjInput, schadesInput);
 	svjNieuw.innerHTML = svjNaSchade;
 
 	// Aantal procent korting na schadeclaim(s)
-	let kortingsTredeNaSchade = berekenKortingTredeNaSchade(kortingTrede, schadesInput);
+	const kortingsTredeNaSchade = berekenKortingTredeNaSchade(kortingTrede, schadesInput);
 	kortingNieuw.innerHTML = kortingPerTrede[kortingsTredeNaSchade] + '% korting (trede ' + (kortingsTredeNaSchade + 1) + ')';
 
 	// Nieuwe premie na schadeclaim(s)
 	if (!isNaN(waPremieInput)) {
-		let huidigeKortingPercentage = kortingPerTrede[kortingTrede];
-		let nieuweKortingPercentage = kortingPerTrede[kortingsTredeNaSchade];
-		let nieuwePremie = berekenNieuwePremie(waPremieInput, huidigeKortingPercentage, nieuweKortingPercentage);
+		const huidigeKortingPercentage = kortingPerTrede[kortingTrede];
+		const nieuweKortingPercentage = kortingPerTrede[kortingsTredeNaSchade];
+		const nieuwePremie = berekenNieuwePremie(waPremieInput, huidigeKortingPercentage, nieuweKortingPercentage);
 		premieNieuw.innerHTML = nieuwePremie;
 	}
 }
