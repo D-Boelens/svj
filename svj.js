@@ -12,8 +12,8 @@ const premieNieuw = document.getElementById('premie-nieuw-id');
 
 // Alert bij ongeldige waarde svj, schades of premie
 function geldigeInput(svj, schades, premieWa) {
-	if (isNaN(svj) || isNaN(schades) || isNaN(premieWa) || schades < 0) {
-		alert('Voer s.v.p. een geldig aantal in');
+	if (isNaN(svj) || isNaN(schades) || isNaN(premieWa) || schades < 0 || premieWa < 0) {
+		alert('Vul alle verplichte velden in');
 		return false;
 	}
 	return true;
