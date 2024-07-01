@@ -9,6 +9,7 @@ const uitkomst = document.getElementById('korting-id');// Nog gebruiken voor com
 const svjNieuw = document.getElementById('svj-nieuw-id');
 const kortingNieuw = document.getElementById('korting-nieuw-id');
 const premieNieuw = document.getElementById('premie-nieuw-id');
+const checkBoxMaand = document.getElementById('checkbox-id-maand')
 
 // Alert bij ongeldige waarde svj, schades of premie
 function geldigeInput (svj, schades, premieWa, premieCasco) {
@@ -105,7 +106,11 @@ function malusBerekening() {
 			berekenNieuweCascoPremie(cascoPremieInput, huidigeKortingPercentage, nieuweKortingPercentage)
 		);
 		nieuwePremie += nieuweCascoPremie;
-	}
+  }
+  
+  if (checkBoxMaand.checked) {
+		nieuwePremie *= 1.032;
+  }
 
 	premieNieuw.innerHTML = nieuwePremie.toFixed(2);
 }

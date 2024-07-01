@@ -29,7 +29,7 @@
       <div class="premie-field" id="wa-premie-field-id">
         <input class="premie-field-input"
           id="wa-premie-field-input-id" type="number"
-          placeholder="WA Premie excl. assurantiebelasting"/>
+          placeholder="WA Premie excl. assurantiebelasting"/> 
       </div>
 
       <div class="premie-field" id="casco-premie-field-id"><span>Optioneel</span>
@@ -37,6 +37,9 @@
         id="casco-premie-field-input-id" type="number"
         placeholder="(Beperkt) Casco premie excl. assurantiebelasting" /> 
       </div>
+
+      <p><input type="checkbox"
+          id="checkbox-id-maand">Maandpremie (voor Kameleon polissen)</p>
 
       <button class="button-bevestigen"
         id="button-bevestigen-id">Bevestigen</button>
@@ -46,20 +49,19 @@
 
     <div class="output-group" id="output-group-id">
       <p class="korting" id="korting-id">
-        U heeft momenteel
+        Huidige korting:
         <span class="korting-percentage"
           id="korting-percentage-id"></span>
       </p>
-      <p>Wanneer u deze schade(s) claimt, ziet uw situatie er als
-        volgt uit.</p>
-
+      
+      <p>Korting, jaren en premie volgend verzekeringsjaar</p>
       <div class="uitkomst" id="uitkomst-id">
-        <strong>Schadevrije jaren:</strong>
+        <strong>Schadevrije jaren: </strong>
         <span class="svj-nieuw" id="svj-nieuw-id"></span> <br />
-        <strong>Kortingspercentage:</strong>
+        <strong>Kortingspercentage: </strong>
         <span class="korting-nieuw" id="korting-nieuw-id"></span>
         <br />
-        <strong>Nieuwe premie incl. assurantiebelasting:</strong>
+        <strong>Nieuwe premie incl. assurantiebelasting: </strong>
         <span class="premie-nieuw" id="premie-nieuw-id"></span>
         <br />
       </div>
