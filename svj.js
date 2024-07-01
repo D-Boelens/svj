@@ -116,3 +116,4 @@ function malusBerekening() {
 }
 
 buttonBevestigen.addEventListener('click', malusBerekening);
+checkBoxMaand.addEventListener('change', malusBerekening);
